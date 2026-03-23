@@ -9,6 +9,10 @@ case "$PARAMETRO_OPTATIVO" in
      "-d")
             echo "Borrando la carpeta EPNro1..."
             mv ~/EPNro1/consolidar.sh ~/EJ1
+            mv ~/EPNro1/procesado/archivo1.txt ~/EJ1
+            mv ~/EPNro1/procesado/archivo2.txt ~/EJ1
+            mv ~/EPNro1/procesado/archivo3.txt ~/EJ1
+            pkill -f consolidar.sh
             rm -rf ~/EPNro1 ;;
         *)
             echo "Ningún parametro optativo";; 
@@ -37,6 +41,9 @@ if [[ -z "$PARAMETRO_OPTATIVO" ]] ; then
                 } && echo -e "\033[32mHecho correctamente\033[0m" ;;
 
             "2") 
+                mv archivo1.txt ~/EPNro1/entrada
+                mv archivo2.txt ~/EPNro1/entrada
+                mv archivo3.txt ~/EPNro1/entrada
                 cd ~/EPNro1
                 bash consolidar.sh & ;;
 
